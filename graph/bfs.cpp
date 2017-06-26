@@ -1,24 +1,26 @@
 #include<iostream>
+#include<list>
 #include<stdio.h>
 using namespace std;
+
 class Graph{
 	int V;
 	list<int> *adj;
 	public:
-		graph(int V);
+		Graph(int V);
 		void addEdge(int v,int w);
 		void BFS(int s);
-}
-Graph::graph(int V){
+};
+Graph::Graph(int V){
 	this->V=V;
 	adj=new list<int> [V];
 }
 void Graph::addEdge(int v,int w){
 	adj[v].push_back(w);
 }
-void graph::BFS(int s){
+void Graph::BFS(int s){
 	bool *visited = new bool[V];
-	for(int i=0;i<V;i++{
+	for(int i=0;i<V;i++){
 		visited[i]=false;
 	}
 	list<int >queue;
@@ -38,7 +40,8 @@ void graph::BFS(int s){
 				queue.push_back(*i);
 			}
 		}
-	}
+		
+	}cout<<endl;
 }
 
 int main(){
@@ -49,7 +52,7 @@ Graph g(4);
     g.addEdge(2, 0);
     g.addEdge(2, 3);
     g.addEdge(3, 3);
-g.BFS(2)
+g.BFS(2);
 
 return 0;
 }
