@@ -39,6 +39,10 @@ int count(){
 	return size;
 }
 int stack::top(){
-	return topi->data;
+	node* t=top;
+	while(t->next!=NULL){
+		t=t->next;
+	}
+	return t->data;
 }
 
