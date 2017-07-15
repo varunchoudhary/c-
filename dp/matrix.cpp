@@ -22,7 +22,7 @@ int l1[n][n];
 	}
 	int i,j,k,l,q;
 	for(l=2;l<n;l++){
-		for(i=0;i<n-l+1;i++){
+		for(i=1;i<n-l+1;i++){
 			j=i+l-1;
 			l1[i][j]=9999999;
 			for(k=i;k<j+1;k++){
