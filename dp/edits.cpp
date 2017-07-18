@@ -22,8 +22,8 @@ int edits(string s,string a,int l1,int l2){
 }
 
 int main(){
-	string s="abcaa";
-	string a="bacbb";
+	string s="abcd";
+	string a="gadcb";
 	int l1=s.length();
 	int l2=a.length();
 	cout<<edits(s,a,l1,l2);
