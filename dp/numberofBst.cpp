@@ -1,24 +1,30 @@
 #include<iostream>
 
 using namespace std;
-
-int l[1000][1000];
-
-
-
-int size(int n){
-l[0][1]=0;
-l[1][2]=l[0][1]+1;
-	for(int i=2;i<=n;i++){
-		l[i][n]+=l[i-1][n-i];
-	}
-	return l[n-1][n-1]; 
+int numberBst(int n){
+	if(n==0)
+		return 1;
+	int count =0;
+	for(int i=1;i<=n;i++)
+		count+=numberBst(i-1)*numberBst(n-i);
+	return count;
 }
+int dp[1024];
+int dpnumberBst(int n){
+if(dp[n]!=1)
+	return dp[n];
+dp[n]=0;
+for(int i=1;i<=n;i++)
+	dp[n]+=dpnumberBst(i-1)*dpnumberBst(n-i);
+return dp[n];
+}
+
 int main(){
-for(int i=0;i<1000;i++){
-	for(int j=0;j<1000;j++){
-		l[i][j]=0;	
-	}
-}
-cout<<size(4);
+	int n;
+	cin>>n;
+	int *dp=new int[n+1];
+	for(int i=0;i<=n;i++)
+		dp[i]=1;
+	cout<<numberBst(n)<<endl;	
+	cout<<dpnumberBst(n)<<endl;
 }
